@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+						 Disappearing="ContentPage_Disappearing"
+             x:Class="AdminApp.MainPage">
+
+		<Grid>
+				<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="2*" />
+				</Grid.ColumnDefinitions>
+
+				<ListView x:Name="MyListView" ItemTapped="OnItemTapped">
+						<ListView.ItemTemplate>
+								<DataTemplate>
+										<ViewCell>
+												<Label Text="{Binding}" Padding="10" />
+										</ViewCell>
+								</DataTemplate>
+						</ListView.ItemTemplate>
+				</ListView>
+
+				<Grid Grid.Column="1">
+						<Grid.RowDefinitions>
+								<RowDefinition Height="4*" />
+								<RowDefinition Height="*" />
+						</Grid.RowDefinitions>
+
+						<toolkit:MediaElement x:Name="mediaElement"
+                            ShouldAutoPlay="False" Grid.Row="1"
+                            ShouldShowPlaybackControls="True"/>
+
+						<Grid Grid.Row="0">
+								<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="3*" />
+								</Grid.ColumnDefinitions>
+								
+								<ListView x:Name="FilesView" ItemTapped="FilesView_ItemTapped" Grid.Column="0">
+										<ListView.ItemTemplate>
+												<DataTemplate>
+														<ViewCell>
+																<Label Text="{Binding}" Padding="10" />
+														</ViewCell>
+												</DataTemplate>
+										</ListView.ItemTemplate>
+								</ListView>
+
+						</Grid>
+				</Grid>
+				
+		</Grid>
+
+</ContentPage>
